@@ -1,4 +1,4 @@
-# Bevy Web Asset
+# Bevy Web Asset Loader
 
 This is a tiny crate that that wraps the standard bevy asset loader, and adds
 the ability to load assets from http and https urls.
@@ -38,5 +38,9 @@ Adding the plugin is little bit tricky:
 But using it is quite simple, just use http urls instead of regular asset paths.
 
 ```rust
+// directly reference the target resource http/https url.
 let font: Handle<Font> = asset_server.load("https://example.com/fonts/quicksand-light.ttf");
+
+// in wasm you can slug the url origin to load from.
+let font: Handle<Font> = asset_server.load("{origin}/fonts/quicksand-light.ttf");
 ```
